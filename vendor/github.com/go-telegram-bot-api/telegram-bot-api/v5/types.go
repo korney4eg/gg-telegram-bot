@@ -1389,6 +1389,7 @@ type InlineKeyboardButton struct {
 	//
 	// optional
 	Pay bool `json:"pay,omitempty"`
+	RequestWebApp *KeyboardWebAppInfoType `json:"web_app,omitempty"`
 }
 
 // LoginURL represents a parameter of the inline keyboard button used to

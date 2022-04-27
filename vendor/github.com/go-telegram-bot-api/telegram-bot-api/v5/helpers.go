@@ -639,7 +639,18 @@ func NewKeyboardButtonLocation(text string) KeyboardButton {
 func NewKeyboardButtonWebApp(text string) KeyboardButton {
 	return KeyboardButton{
 		Text: text,
-		URL:  "https://google.com/",
+		RequestWebApp: &KeyboardWebAppInfoType{
+			URL: "https://zametki.makvaz.com/assets/js/index.html",
+		},
+	}
+}
+
+func NewInlineKeyboardWebApp(text, url string) InlineKeyboardButton {
+	return InlineKeyboardButton{
+		Text: text,
+		RequestWebApp: &KeyboardWebAppInfoType{
+			URL: url,
+		},
 	}
 }
 

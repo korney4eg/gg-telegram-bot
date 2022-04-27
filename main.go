@@ -9,16 +9,27 @@ import (
 
 var numericKeyboard = tgbotapi.NewInlineKeyboardMarkup(
 	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonURL("1.com", "http://1.com"),
-		tgbotapi.NewInlineKeyboardButtonData("2", "2"),
-		tgbotapi.NewInlineKeyboardButtonData("3", "3"),
-	),
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardButtonData("4", "4"),
-		tgbotapi.NewInlineKeyboardButtonData("5", "5"),
-		tgbotapi.NewInlineKeyboardButtonData("6", "6"),
+		tgbotapi.NewInlineKeyboardWebApp("1.com", "https://zametki.makvaz.com/assets/js/index.html?unread-messages=4&notifications=2&favorites=5"),
 	),
 )
+
+type GGDialogsResponce struct {
+	List []struct {
+		ID   int `json:"id"`
+		User struct {
+			ID       int    `json:"id"`
+			Nickname string `json:"nickname"`
+			Avatar   string `json:"avatar"`
+			ObjKey   string `json:"obj_key"`
+		} `json:"user"`
+		Unread      int    `json:"unread"`
+		Deleted     int    `json:"deleted"`
+		LastMessage string `json:"last_message"`
+		LastAuthor  int    `json:"last_author"`
+	} `json:"list"`
+	Total  string `json:"total"`
+	Unread int    `json:"unread"`
+}
 
 func main() {
 	bot, err := tgbotapi.NewBotAPI(os.Getenv("TELEGRAM_APITOKEN"))
@@ -47,7 +58,6 @@ func main() {
 			switch update.Message.Text {
 			case "open":
 				msg.ReplyMarkup = numericKeyboard
-
 			}
 
 			// Send the message.
