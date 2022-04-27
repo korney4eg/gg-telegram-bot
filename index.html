@@ -15,5 +15,15 @@
 <body>
   <h1>hello word</h1>
 
+  <p>messages: <span id="messages" ></span></p>
+  <p>favorites: <span id="favorites" ></span></p>
+  <p>notifications: <span id="notifications" ></span></p>
+    <script >
+          const url = new URL(window.location.href);
+          const searchParams = url.searchParams;
+          messages.textContent = searchParams.get('messages')
+          favorites.textContent = searchParams.get('favorites')
+          notifications.textContent = searchParams.get('notifications')
+    </script>
 </body>
 </html>

@@ -9,7 +9,7 @@ import (
 
 var numericKeyboard = tgbotapi.NewInlineKeyboardMarkup(
 	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardWebApp("1.com", "https://zametki.makvaz.com/assets/js/index.html?unread-messages=4&notifications=2&favorites=5"),
+		tgbotapi.NewInlineKeyboardWebApp("1.com", "https://zametki.makvaz.com/assets/js/index.html?messages=4&notifications=2&favorites=5"),
 	),
 )
 
