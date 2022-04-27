@@ -636,11 +636,11 @@ func NewKeyboardButtonLocation(text string) KeyboardButton {
 
 // NewKeyboardButtonContact creates a keyboard button that requests
 // user contact information upon click.
-func NewKeyboardButtonWebApp(text string) KeyboardButton {
+func NewKeyboardButtonWebApp(text, url string) KeyboardButton {
 	return KeyboardButton{
 		Text: text,
 		RequestWebApp: &KeyboardWebAppInfoType{
-			URL: "https://zametki.makvaz.com/assets/js/index.html",
+			URL: url,
 		},
 	}
 }

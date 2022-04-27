@@ -7,9 +7,9 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
-var numericKeyboard = tgbotapi.NewInlineKeyboardMarkup(
-	tgbotapi.NewInlineKeyboardRow(
-		tgbotapi.NewInlineKeyboardWebApp("1.com", "https://zametki.makvaz.com/assets/js/index.html?messages=4&notifications=2&favorites=5"),
+var numericKeyboard = tgbotapi.NewReplyKeyboard(
+	tgbotapi.NewKeyboardButtonRow(
+		tgbotapi.NewKeyboardButtonWebApp("1.com", "https://zametki.makvaz.com/assets/js/index.html?messages=4&notifications=2&favorites=5"),
 	),
 )
 
